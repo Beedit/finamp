@@ -6,6 +6,7 @@ import 'package:finamp/components/themed_bottom_sheet.dart';
 import 'package:finamp/l10n/app_localizations.dart';
 import 'package:finamp/menus/components/menuEntries/adaptive_download_lock_delete_menu_entry.dart';
 import 'package:finamp/menus/components/menuEntries/add_to_playlist_menu_entry.dart';
+import 'package:finamp/menus/components/menuEntries/clear_queue_before_track_menu_entry.dart';
 import 'package:finamp/menus/components/menuEntries/clear_queue_menu_entry.dart';
 import 'package:finamp/menus/components/menuEntries/create_playlist_from_current_queue.dart';
 import 'package:finamp/menus/components/menuEntries/delete_from_server_menu_entry.dart';
@@ -251,10 +252,15 @@ class _TrackMenuState extends ConsumerState<TrackMenu> with TickerProviderStateM
       StartRadioMenuEntry(baseItem: widget.item),
       AdaptiveDownloadLockDeleteMenuEntry(baseItem: widget.item),
       ToggleFavoriteMenuEntry(baseItem: widget.item),
+      // queue-related actions
       if (widget.showQueueActions) CreatePlaylistFromCurrentQueueMenuEntry(),
       if (widget.showQueueActions) ClearQueueMenuEntry(baseItem: widget.item),
-      DeleteFromServerMenuEntry(baseItem: widget.item),
+      // queue-related actions, but tied to specific tracks
+      ClearQueueInDirectionMenuEntry(queueItem: widget.queueItem, direction: AxisDirection.up),
+      ClearQueueInDirectionMenuEntry(queueItem: widget.queueItem, direction: AxisDirection.down),
       RemoveFromQueueMenuEntry(queueItem: widget.queueItem),
+      // keep delete last
+      DeleteFromServerMenuEntry(baseItem: widget.item),
     ];
   }
 

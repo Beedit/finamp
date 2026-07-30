@@ -762,6 +762,14 @@
     "@stopAndClearQueue": {
         "description": "Label for a button that stops playback and removes all tracks from the queue."
     },
+    "clearQueueAbove": "Clear Queue Above",
+    "@clearQueueAbove": {
+        "description": "Label for the action that clears the queue above the selected track."
+    },
+    "clearQueueBelow": "Clear Queue Below",
+    "@clearQueueBelow": {
+        "description": "Label for the action that clears the queue below the selected track."
+    },
     "createPlaylistFromCurrentQueue": "Save Queue to Playlist",
     "@createPlaylistFromCurrentQueue": {
         "description": "Label for a button that adds the current queue to an existing or new playlist."

@@ -21,6 +21,7 @@ import 'package:finamp/services/jellyfin_api_helper.dart';
 import 'package:finamp/services/music_player_background_task.dart';
 import 'package:finamp/services/playback_history_service.dart';
 import 'package:finamp/services/radio_service_helper.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive_ce_flutter/hive_flutter.dart';
@@ -925,6 +926,35 @@ class QueueService {
     //     preload: false);
 
     FinampSetters.setRadioEnabled(previousRadioState);
+
+    return;
+  }
+
+  Future<void> clearQueueInDirection(FinampQueueItem queueItem, AxisDirection direction) async {
+    assert(direction == AxisDirection.up || direction == AxisDirection.down, "Direction must be up or down");
+
+    int? offset = getQueue().getOffsetForQueueItem(queueItem);
+    if (offset == null) {
+      return;
+    }
+    queueServiceLogger.info("Clearing queue in $direction direction from offset $offset");
+
+    archiveSavedQueue();
+    if (_savedQueueState == SavedQueueState.pendingSave) {
+      _savedQueueState = SavedQueueState.saving;
+    }
+
+    int startOfQueue = getActualIndexByLinearIndex(_currentQueueIndex + 1);
+    int adjustedQueueIndex = getActualIndexByLinearIndex(_currentQueueIndex + offset + 1);
+    int endOfQueue = getActualIndexByLinearIndex(_currentQueueIndex + _queue.length + _queueNextUp.length + 1);
+
+    if (direction == AxisDirection.up) {
+      await _audioHandler.removeFinampQueueItemRange(startOfQueue, adjustedQueueIndex);
+    } else {
+      await _audioHandler.removeFinampQueueItemRange(adjustedQueueIndex, endOfQueue);
+    }
+
+    _buildQueueFromNativePlayerQueue();
 
     return;
   }
