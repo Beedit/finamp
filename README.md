@@ -94,6 +94,8 @@ Some of its features include:
 
 [<img src="app-store-badges/app-store.svg" width="180" alt="App Store">](https://apps.apple.com/us/app/finamp/id1574922594)
 
+[<img src="app-store-badges/flathub.svg" width="180" alt="FlatHub">](https://flathub.org/en/apps/com.unicornsonlsd.finamp)
+
 </div>
 
 <sup>Note: The F-Droid release may take a day or two to get updates because [F-Droid only builds once a day](https://www.f-droid.org/en/docs/FAQ_-_App_Developers/#ive-published-a-new-release-why-is-it-not-in-the-repository).</sup>  
