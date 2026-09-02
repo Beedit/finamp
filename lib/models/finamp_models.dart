@@ -3099,6 +3099,7 @@ enum ReleaseDateFormat {
   dayMonthYear,
   @HiveField(5)
   dayMonthYearLong;
+
   /// Human-readable version of this enum. I've written longer descriptions on
   /// enums like [ContentType], and I can't be bothered to copy and paste it
   /// again.
@@ -4475,6 +4476,7 @@ enum FinampQuickActions {
   surpriseMe(true),
   @HiveField(9)
   playSpecificItem(true);
+
   // ID 10 moved upwards for more sensible user-facing ordering
   //TODO support album/artist shuffle (requires queue support)
 
