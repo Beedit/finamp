@@ -3094,8 +3094,11 @@ enum ReleaseDateFormat {
   @HiveField(2)
   monthYear,
   @HiveField(3)
-  monthDayYear;
-
+  monthDayYear,
+  @HiveField(4)
+  dayMonthYear,
+  @HiveField(5)
+  dayMonthYearLong;
   /// Human-readable version of this enum. I've written longer descriptions on
   /// enums like [ContentType], and I can't be bothered to copy and paste it
   /// again.
@@ -3113,6 +3116,10 @@ enum ReleaseDateFormat {
         return l10n.releaseDateFormatMonthYear;
       case ReleaseDateFormat.monthDayYear:
         return l10n.releaseDateFormatMonthDayYear;
+      case ReleaseDateFormat.dayMonthYear:
+        return l10n.releaseDateFormatDayMonthYear;
+      case ReleaseDateFormat.dayMonthYearLong:
+        return l10n.releaseDateFormatDayMonthYearLong;
     }
   }
 }

@@ -27,6 +27,10 @@ class ReleaseDateHelper {
         return "${DateFormat.MMMM(locale).format(premiereDate)} ${DateFormat.y(locale).format(premiereDate)}";
       case ReleaseDateFormat.monthDayYear:
         return "${DateFormat.MMMM(locale).format(premiereDate)} ${DateFormat.d(locale).format(premiereDate)}, ${DateFormat.y(locale).format(premiereDate)}";
+      case ReleaseDateFormat.dayMonthYear:
+        return "${DateFormat.d(locale).format(premiereDate)}/${DateFormat.M(locale).format(premiereDate)}/${DateFormat.y(locale).format(premiereDate)}";
+      case ReleaseDateFormat.dayMonthYearLong:
+        return "${DateFormat.d(locale).format(premiereDate)} ${DateFormat.MMMM(locale).format(premiereDate)}, ${DateFormat.y(locale).format(premiereDate)}";
     }
   }
 }

@@ -2157,6 +2157,14 @@
     "@releaseDateFormatMonthDayYear": {
         "description": "Date format option for the release date of an album, showing the year and month and day/date. Example: March 2, 2022"
     },
+    "releaseDateFormatDayMonthYear": "Day/Month/Year",
+    "@releaseDateFormatDayMonthYear": {
+        "description": "Date format option for the release date of an album, showing the date in format DD/MM/YYYY. Example: 2/3/2022"
+    },
+    "releaseDateFormatDayMonthYearLong": "Day, Month & Year",
+    "@releaseDateFormatDayMonthYearLong": {
+        "description": "Date format option for the release date of an album, showing the date as day, month, year. Example: 2 March, 2022"
+    },
     "showAlbumReleaseDateOnPlayerScreenTitle": "Show Album Release Date on Player Screen",
     "@showAlbumReleaseDateOnPlayerScreenTitle": {
         "description": "Title for the setting that controls if the release date of an album is shown on the player screen"
