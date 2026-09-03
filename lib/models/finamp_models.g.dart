@@ -2946,9 +2946,7 @@ class ReleaseDateFormatAdapter extends TypeAdapter<ReleaseDateFormat> {
       case 3:
         return ReleaseDateFormat.monthDayYear;
       case 4:
-        return ReleaseDateFormat.dayMonthYear;
-      case 5:
-        return ReleaseDateFormat.dayMonthYearLong;
+        return ReleaseDateFormat.numerical;
       default:
         return ReleaseDateFormat.year;
     }
@@ -2965,10 +2963,8 @@ class ReleaseDateFormatAdapter extends TypeAdapter<ReleaseDateFormat> {
         writer.writeByte(2);
       case ReleaseDateFormat.monthDayYear:
         writer.writeByte(3);
-      case ReleaseDateFormat.dayMonthYear:
+      case ReleaseDateFormat.numerical:
         writer.writeByte(4);
-      case ReleaseDateFormat.dayMonthYearLong:
-        writer.writeByte(5);
     }
   }
 
